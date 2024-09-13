@@ -4,3 +4,13 @@ export enum Direction {
   Left,
   Right,
 }
+
+export enum FieldType {
+  Empty,
+  Start,
+  End,
+  Horizontal,
+  Vertical,
+  Cross,
+  Letter,
+}
