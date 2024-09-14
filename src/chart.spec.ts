@@ -1,5 +1,4 @@
 import { Chart } from "./chart";
-import { Point } from "./point";
 import { FieldType } from "./types";
 
 describe("Creating of the chart", () => {
@@ -12,11 +11,11 @@ describe("Creating of the chart", () => {
         "    +---+"
     );
 
-    expect(chart.getField(new Point(4, 0))).toBe(FieldType.Letter);
-    expect(chart.getCharacter(new Point(4, 0))).toBe("A");
+    expect(chart.getField({ x: 4, y: 0 })).toBe(FieldType.Letter);
+    expect(chart.getCharacter({ x: 4, y: 0 })).toBe("A");
 
-    expect(chart.getField(new Point(0, 2))).toBe(FieldType.End);
-    expect(chart.getCharacter(new Point(0, 2))).toBe("x");
+    expect(chart.getField({ x: 0, y: 2 })).toBe(FieldType.End);
+    expect(chart.getCharacter({ x: 0, y: 2 })).toBe("x");
   });
 
   it("should return Empty for undefined points", () => {
@@ -28,8 +27,8 @@ describe("Creating of the chart", () => {
       +-------+
     `);
 
-    expect(chart.getField(new Point(0, -100))).toBe(FieldType.Empty);
-    expect(chart.getField(new Point(100, 100))).toBe(FieldType.Empty);
+    expect(chart.getField({ x: 0, y: -100 })).toBe(FieldType.Empty);
+    expect(chart.getField({ x: 100, y: 100 })).toBe(FieldType.Empty);
   });
 });
 

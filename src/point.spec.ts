@@ -1,23 +1,24 @@
-import { Point } from "./point";
+import { arePointsEqual, getNeighbouringPoint } from "./point";
 import { Direction } from "./types";
 
-describe("Point", () => {
+describe("Point utils", () => {
   it("should compare points", () => {
-    const pointA = new Point(1, 2);
-    const pointB = new Point(2, 1);
-    const pointC = new Point(1, 2);
+    const pointA = { x: 1, y: 2 };
+    const pointB = { x: 2, y: 1 };
+    const pointC = { x: 1, y: 2 };
 
-    expect(pointA.isEqual(pointB)).toBe(false);
-    expect(pointA.isEqual(pointC)).toBe(true);
+    expect(arePointsEqual(pointA, pointB)).toBe(false);
+    expect(arePointsEqual(pointA, pointC)).toBe(true);
   });
 
   it.each([
-    [Direction.Up, new Point(1, 4)],
-    [Direction.Down, new Point(1, 6)],
-    [Direction.Left, new Point(0, 5)],
-    [Direction.Right, new Point(2, 5)],
+    [Direction.Up, { x: 1, y: 4 }],
+    [Direction.Down, { x: 1, y: 6 }],
+    [Direction.Left, { x: 0, y: 5 }],
+    [Direction.Right, { x: 2, y: 5 }],
   ])("should find neighbour", (direction, point) => {
-    const initial = new Point(1, 5);
-    expect(initial.getNeighbour(direction)).toMatchObject(point);
+    const initial = { x: 1, y: 5 };
+
+    expect(getNeighbouringPoint(initial, direction)).toMatchObject(point);
   });
 });

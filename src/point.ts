@@ -3,29 +3,24 @@ import { Direction } from "./types";
 /**
  * Point on the chart. Top left corner will be (0,0).
  */
-export class Point {
+export type Point = {
   readonly x: number;
   readonly y: number;
+};
 
-  constructor(x: number, y: number) {
-    this.x = x;
-    this.y = y;
-  }
+export function arePointsEqual(pointA: Point, pointB: Point) {
+  return pointA.x === pointB.x && pointA.y === pointB.y;
+}
 
-  isEqual(point: Point) {
-    return this.x === point.x && this.y === point.y;
-  }
-
-  getNeighbour(direction: Direction) {
-    switch (direction) {
-      case Direction.Up:
-        return new Point(this.x, this.y - 1);
-      case Direction.Down:
-        return new Point(this.x, this.y + 1);
-      case Direction.Left:
-        return new Point(this.x - 1, this.y);
-      case Direction.Right:
-        return new Point(this.x + 1, this.y);
-    }
+export function getNeighbouringPoint(point: Point, direction: Direction) {
+  switch (direction) {
+    case Direction.Up:
+      return { x: point.x, y: point.y - 1 };
+    case Direction.Down:
+      return { x: point.x, y: point.y + 1 };
+    case Direction.Left:
+      return { x: point.x - 1, y: point.y };
+    case Direction.Right:
+      return { x: point.x + 1, y: point.y };
   }
 }

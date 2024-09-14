@@ -32,7 +32,7 @@ export class Chart {
     this.chart.forEach((row, y) => {
       for (let x = 0; x <= row.length; x++) {
         if (row[x] === "@") {
-          startingPoints.push(new Point(x, y));
+          startingPoints.push({ x, y });
         }
       }
     });
