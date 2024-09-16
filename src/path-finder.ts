@@ -1,6 +1,6 @@
 import { Chart } from "./chart";
-import { getNeighbouringPoint, Point } from "./point";
-import { Direction, FieldType } from "./types";
+import { getNeighbouringPoint } from "./utils";
+import { Direction, FieldType, Point } from "./types";
 
 export function* pathFinder(chart: Chart) {
   let point = chart.startingPoint;

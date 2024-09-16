@@ -1,31 +1,12 @@
-import { Point } from "./point";
-import { FieldType } from "./types";
-
-const characterToField = (character: string) => {
-  switch (character) {
-    case " ":
-      return FieldType.Empty;
-    case "@":
-      return FieldType.Start;
-    case "x":
-      return FieldType.End;
-    case "-":
-      return FieldType.Horizontal;
-    case "|":
-      return FieldType.Vertical;
-    case "+":
-      return FieldType.Turn;
-    default:
-      return FieldType.Letter;
-  }
-};
+import { Point } from "./types";
+import { characterToField } from "./utils";
 
 export class Chart {
   private chart: string[];
   readonly startingPoint: Point;
 
   constructor(chart: string) {
-    this.chart = chart.split("\n");
+    this.chart = chart.split(/\r?\n/);
 
     const startingPoints = [] as Point[];
 

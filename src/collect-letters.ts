@@ -1,7 +1,7 @@
 import { Chart } from "./chart";
 import { pathFinder } from "./path-finder";
-import { arePointsEqual, Point } from "./point";
-import { FieldType } from "./types";
+import { arePointsEqual } from "./utils";
+import { FieldType, Point } from "./types";
 
 export function collectLetters(chart: Chart) {
   const pathCharacters: string[] = [];
