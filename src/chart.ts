@@ -14,7 +14,7 @@ const characterToField = (character: string) => {
     case "|":
       return FieldType.Vertical;
     case "+":
-      return FieldType.Cross;
+      return FieldType.Turn;
     default:
       return FieldType.Letter;
   }

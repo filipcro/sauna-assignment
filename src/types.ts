@@ -11,6 +11,6 @@ export enum FieldType {
   End,
   Horizontal,
   Vertical,
-  Cross,
+  Turn,
   Letter,
 }
